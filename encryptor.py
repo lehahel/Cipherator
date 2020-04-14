@@ -55,7 +55,7 @@ elif args.func == 'decode':
 elif args.func == 'train':
     if args.text_file:
         with open(args.text_file, 'r') as f:
-            text = f.read
+            text = f.read()
     else:
         text = input()
     trainer.train(text, args.model_file)
