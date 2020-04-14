@@ -65,7 +65,7 @@ else:
             text = f.read()
     else:
         text = input()
-    result = trainer.hack(text, args.model_file)
+    result = trainer.caesar_hack(text, args.model_file)
     if args.output_file:
         with open(args.output_file, 'w') as f:
             f.write(result)
