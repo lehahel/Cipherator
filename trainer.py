@@ -26,7 +26,7 @@ def get_stat(text):
 
 def find_model_distance(stat1, stat2):
     if len(stat1) != alphabet_size or len(stat2) != alphabet_size:
-        raise NameError('Wrong stat')
+        raise Exception('Wrong stat')
     distance = 0
     for i in range(alphabet_size):
         distance += abs(stat1[i] - stat2[i])
@@ -61,13 +61,10 @@ def caesar_hack(text, model_file):
 def read_stat_file(filename):
     if not isinstance(filename, str):
         raise TypeError('filename should be str')
-    if not ('.txt' in filename):
-        raise NameError('file should be .txt')
     stat = []
-    file = open(filename)
-    for i in range(alphabet_size):
-        stat.append(float(file.readline().replace('\n', '')))
-    file.close()
+    with open(filename, 'r') as f:
+        for i in range(alphabet_size):
+            stat.append(float(f.readline().strip('\n')))
     return stat
 
 

@@ -7,12 +7,12 @@ import argparser
 args = argparser.parse_arguments()
 if args.func == 'encode':
     text = file_work.read_text(args.input_file)
-    result = cipher.encode(args.cipher, int(args.key), text)
+    result = cipher.encode(args.cipher, args.key, text)
     file_work.write_text(result, args.output_file)
 
 elif args.func == 'decode':
     text = file_work.read_text(args.input_file)
-    result = cipher.decode(args.cipher, int(args.key), text)
+    result = cipher.decode(args.cipher, args.key, text)
     file_work.write_text(result, args.output_file)
 
 elif args.func == 'train':
