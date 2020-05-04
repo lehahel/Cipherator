@@ -14,6 +14,6 @@ if args.func != 'train':
         result = trainer.caesar_hack(text, args.model_file)
     file_work.write_text(result, args.output_file)
 
-elif args.func == 'train':
+else:
     text = file_work.read_text(args.text_file)
     trainer.train(text, args.model_file)
