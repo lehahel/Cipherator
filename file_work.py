@@ -1,6 +1,12 @@
 def read_text(filename=None):
     if filename is None:
-        return input()
+        res = ''
+        new_str = input()
+        while new_str:
+            res += '\n' + new_str
+            new_str = input()
+        return res
+
     with open(filename, 'r') as f:
         return f.read()
 

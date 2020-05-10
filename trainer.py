@@ -12,7 +12,7 @@ def hack(text, cipher_type, model_file):
 
 
 def get_stat(text):
-    stat = [0 for i in range(len(alphabet))]
+    stat = [0 for _ in alphabet]
     full_sum = 0
     for x in text:
         if x in alphabet:
@@ -47,16 +47,6 @@ def caesar_hack(text, model_file):
             best_distance = distance
             best_k = k
     return cipher.act('decode', 'caesar', best_k, text)
-
-
-def read_stat_file(filename):
-    if not isinstance(filename, str):
-        raise TypeError('filename should be str')
-    stat = []
-    with open(filename, 'r') as f:
-        for i in range(len(alphabet)):
-            stat.append(float(f.readline().strip('\n')))
-    return stat
 
 
 def train(text, model_file):
