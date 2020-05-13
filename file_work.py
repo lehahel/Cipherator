@@ -1,10 +1,9 @@
+import sys
+
+
 def read_text(filename=None):
     if filename is None:
-        res = ''
-        new_str = input()
-        while new_str:
-            res += '\n' + new_str
-            new_str = input()
+        res = sys.stdin.read()
         return res
 
     with open(filename, 'r') as f:
